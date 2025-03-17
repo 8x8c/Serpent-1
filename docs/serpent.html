@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Serpent Encryptor - Pure Rust Implementation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 2em;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #222;
+    }
+    code {
+      background-color: #eef;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: Consolas, monospace;
+    }
+    pre {
+      background-color: #eef;
+      padding: 10px;
+      border-radius: 3px;
+      overflow: auto;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    .note {
+      background-color: #ffffcc;
+      border-left: 5px solid #ffeb3b;
+      padding: 10px;
+      margin-bottom: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Serpent Encryptor</h1>
+  <p>This is a pure Rust implementation of a dummy Serpent‑like encryption tool. It demonstrates the structure of a block cipher using a simplified version of the Serpent algorithm with CBC mode and PKCS7 padding.</p>
+  
+  <h2>Features</h2>
+  <ul>
+    <li>Dummy Serpent encryption and decryption</li>
+    <li>CBC mode with a hard-coded key and IV</li>
+    <li>PKCS7 padding for data alignment</li>
+    <li>Self-contained implementation with no external crypto dependencies</li>
+  </ul>
+  
+  <h2>Usage</h2>
+  <p>The program operates in two modes: encryption (<code>enc</code>) and decryption (<code>dec</code>).</p>
+  
+  <h3>Building</h3>
+  <pre><code>cargo build --release</code></pre>
+  
+  <h3>Encryption</h3>
+  <p>To encrypt a file, run:</p>
+  <pre><code>cargo run -- enc &lt;input file&gt; &lt;output file&gt;</code></pre>
+  <p>Example:</p>
+  <pre><code>cargo run -- enc plain.txt encrypted.bin</code></pre>
+  
+  <h3>Decryption</h3>
+  <p>To decrypt a file, run:</p>
+  <pre><code>cargo run -- dec &lt;input file&gt; &lt;output file&gt;</code></pre>
+  <p>Example:</p>
+  <pre><code>cargo run -- dec encrypted.bin decrypted.txt</code></pre>
+  
+  <h2>Project Overview</h2>
+  <p>The code is implemented entirely in Rust using only the standard library. Key components include:</p>
+  <ul>
+    <li><strong>PKCS7 Padding:</strong> Adds and removes padding to ensure the data size is a multiple of 16 bytes.</li>
+    <li><strong>Dummy Key Schedule:</strong> A simplistic derivation of round keys from a hard-coded 16‑byte key.</li>
+    <li><strong>Dummy Round Functions:</strong> Simulated S‑box (bit reversal, which is self‑inverse) and a linear transformation (rotate left by 3 bits with an inverse) that are applied over 32 rounds.</li>
+    <li><strong>CBC Mode:</strong> Implements chaining where each block is XORed with the previous ciphertext block (or IV).</li>
+  </ul>
+  
+  <h2>Hard-Coded Key and IV</h2>
+  <p>The following values are hard-coded in the source code as 32‑character hexadecimal strings (16 bytes each):</p>
+  <ul>
+    <li><strong>Key:</strong> <code>00112233445566778899aabbccddeeff</code></li>
+    <li><strong>IV:</strong> <code>ffeeddccbbaa99887766554433221100</code></li>
+  </ul>
+  <p>You can modify these values in the source code if needed.</p>
+  
+  <h2>Disclaimer</h2>
+  <p>This implementation is for demonstration purposes only and does not represent a secure, production-ready cipher. The dummy functions and key schedule are highly simplified and should not be used for any real cryptographic applications.</p>
+  
+  <h2>License</h2>
+  <p>Add your preferred license here (for example, MIT License).</p>
+  
+  <h2>Contributing</h2>
+  <p>If you have improvements or suggestions, feel free to submit pull requests or open issues on the project's repository.</p>
+  
+  <p>&copy; 2025 Serpent Encryptor. All rights reserved.</p>
+</body>
+</html>
+
