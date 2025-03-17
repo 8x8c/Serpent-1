@@ -1,6 +1,10 @@
 This is EARLY dev- read  file in the /docs dir. 
 
 
+
+
+From earlier dev --- 
+
 The difficulty isn’t that Rust is too new for Serpent—it’s more that the cryptography ecosystem in Rust (especially for less-common algorithms like Serpent) is still maturing. The Serpent crate you’re using (v0.5.1) was built against an older version of the underlying cipher traits (cipher 0.3), while other crates like block‑modes have since moved on to cipher 0.4. This mismatch creates compatibility issues, such as the one you see with the new_from_slices function.
 
 In essence, because Serpent isn’t as widely used as AES, its maintenance hasn’t kept pace with the rapid evolution of the RustCrypto libraries. This leaves you with a few options:
